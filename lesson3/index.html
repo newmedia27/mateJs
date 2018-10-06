@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Hoisting или "поднятие переменных"? Что произойдет при выполнении следующего куска кода?<br>
+1. undefine <br>
+2. local <br>
+<br>
+
+Какие языковые конструкции в javascript создают scope? Что произойдет при выполнении следующего куска кода?<br>
+2 <br>
+undefined <br>
+<br>
+Почему вызов a(); происходит успешно, а вызов b(); выдает ошибку? <br>
+нет return <br>
+
+Что выведет в консоль следующий код: <br>
+0-9 <br>
+
+
+<script>
+    /*Напишите функцию подсчета факториала числа, но каждый раз возвращая факториал умножайте его на 2 если число четное.*/
+
+    function factorial(a) {
+        console.time("start");
+        let result;
+        let num = 0;
+        for (let i = 1; i < a; i++) {
+            if (i % 2 == 0) {
+                num = i * 2;
+            } else {
+                num = i;
+            }
+            if (i == 1) {
+                result = a * num;
+            } else {
+                result *= num;
+            }
+
+        }
+        console.timeEnd("start");
+        return result;
+    }
+
+    var r = factorial(5);
+    console.log(r);
+
+
+    /*Напишите скрипт, который генерирует случайную строку. В строке должны быть маленькие и большие латинские буквы, цифры и подчеркивание.*/
+
+    function rand() {
+
+        let str = "";
+        let str2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
+        for (let i = 0; i < 8; i++){
+
+        }
+
+    }
+</script>
+</body>
+</html>
