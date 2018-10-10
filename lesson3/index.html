@@ -51,15 +51,30 @@ undefined <br>
 
     /*Напишите скрипт, который генерирует случайную строку. В строке должны быть маленькие и большие латинские буквы, цифры и подчеркивание.*/
 
-    function rand() {
+    function rand(n) {
 
         let str = "";
         let str2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
-        for (let i = 0; i < 8; i++){
-
+        for (let i = 0; i < n; i++) {
+            str += str2[Math.floor(Math.random() * str2.length)];
         }
+        return str;
 
     }
+
+    console.log(rand(4));
+
+    /*Реализуйте функцию union, которая объединит уникальные элементы всех массивов, переданных ей параметром.*/
+
+    function union(...a) {
+
+
+
+        return a;
+    }
+
+    console.log(union([1, 2], [3, 4], [5, 6]));
+
 </script>
 </body>
 </html>
