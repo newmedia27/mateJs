@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+    /*
+
+    1. Write a function "getLength" that will count a length of any given array
+
+    2. Write a function "getArgsLength" that will get any number of arguments, and return a length of all arguments
+
+    3. Write a function "removeEmptyElements" that will delete all empty elements in array given to it, also check inside of it that the argument is an array
+
+    4. Write a function "sortReverse" that will sort an array elements in revers order
+
+    5. Create a function that will get a date as an argument (also check if it's a date), and return an object: { day: your_value, month: your_value, year: your_value }
+
+    6. Write a function, that counts a number of object properties, and alerts the result number after 1 minute (also should works for arrays)
+
+    7. Write a function that every 2 seconds will ask user for his name, and will stops only if he will enter your name, else will ask for a name again
+    */
+
+
+    // 1
+
+    function getLength(arr) {
+        if (Array.isArray(arr)) {
+            return arr.length;
+        }
+    }
+
+    // 2
+
+    function getArgsLength(...arg) {
+        return arg.length;
+    }
+
+    // 3
+
+    function removeEmptyElements(arr) {
+        if (Array.isArray(arr)) {
+            arr = arr.filter(element => element !== null);
+            for (let i in arr) {
+                if (Array.isArray(arr[i])) {
+                    arr[i] = removeEmptyElements(arr[i]);
+                }
+            }
+        } else {
+            alert("Не массив");
+        }
+        return arr;
+    }
+
+    console.log(removeEmptyElements([1, 2, , , , [3, , , , , 4],5,6,[7,,,8,[9,10,,,,,11]]]));
+
+    // 4
+
+    function sortReverse(arr) {
+        if (Array.isArray(arr)) {
+            return arr.reverse();
+        } else {
+            alert("Не массив");
+        }
+    }
+
+    // 5
+    let a = new Date(2008, 1, 1);
+
+    function myDate(a) {
+        let obj = {};
+        if (a instanceof Date) {
+            obj.day = a.getDay();
+            obj.month = a.getMonth();
+            obj.year = a.getFullYear();
+            return obj;
+        }
+    }
+
+    // console.log(myDate(a));
+
+    // 6
+
+    function properties(a) {
+        setTimeout(function () {
+            alert(Object.keys(a).length)
+        }, 1000);
+    }
+
+    // console.log(properties(myDate(a)));
+
+    //7
+
+    function ppc() {
+        let name = prompt('you name');
+        console.log(name);
+        if (name === null || name.length < 1) {
+            setTimeout(function () {
+                ppc();
+            }, 2000)
+        }
+    }
+
+    // ppc();
+</script>
+</body>
+</html>
