@@ -10,21 +10,79 @@
 <body>
 <script>
 
-    function f(x, y) {
-        let result = 0;
-        if (y == 1) {
+    // function f(x, y) {
+    //     let result = 0;
+    //     if (y == 1) {
+    //
+    //         result = x;
+    //     } else {
+    //         x *= x;
+    //         y--;
+    //         result = f(x, y);
+    //
+    //     }
+    //     return result;
+    // }
+    //
+    // console.log(f(8, 2));
 
-            result = x;
-        } else {
-            x *= x;
-            y--;
-            result = f(x, y);
 
-        }
-        return result;
+    /*Дана строка 'aaa@bbb@ccc'. Замените все @ на '!' с помощью глобального поиска и замены.*/
+
+
+    let str = 'aaa@bbb@ccc';
+
+    function func(str) {
+        return str.replace(/@/g, '!');
     }
 
-    console.log(f(8, 2));
+    console.log(func(str));
+
+
+    /*Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb' тремя разными способами (через substr, substring, slice).*/
+
+
+    let string = 'aaa bbb ccc';
+    string1 = string.slice(4, 7);
+    console.log(string1);
+    string2 = string.substr(4, 3);
+    console.log(string2);
+    string3 = string.substring(4, 7);
+    console.log(string3);
+
+    /*В переменной date лежит дата в формате '2025-12-31'. Преобразуйте эту дату в формат '31/12/2025'.*/
+
+    let date = '2025-12-31';
+    date = date.split('-').reverse();
+    date = date.join('/');
+    console.log(date);
+    /*Дана строка 'js'. Сделайте из нее строку 'JS'.*/
+
+    let stR = 'js';
+    stR = stR.toUpperCase();
+    console.log(stR);
+
+    /*Дана строка 'я учу javascript!'. Найдите количество символов в этой строке.*/
+    let a = 'я учу javascript!';
+    console.log(a.length);
+
+    /*Дана переменная str, в которой хранится какой-либо текст.
+     Реализуйте обрезание длинного текста по следующему принципу:
+      если количество символов этого текста больше заданного в переменной n,
+       то в переменную result запишем первые n символов строки str и добавим в конец троеточие '...'.
+        В противном случае в переменную result запишем содержимое переменной str.*/
+
+let STR = 'abcdefghijk';
+function str(str,n) {
+    if (str.length > n ){
+        return str.substr(0,n) + '...';
+    } else{
+        return str;
+    }
+}
+
+
+
 
 </script>
 </body>

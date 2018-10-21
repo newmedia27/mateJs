@@ -78,13 +78,13 @@
         let obj = {};
         if (a instanceof Date) {
             obj.day = a.getDay();
-            obj.month = a.getMonth();
+            obj.month = a.getMonth() - 1;
             obj.year = a.getFullYear();
             return obj;
         }
     }
 
-    // console.log(myDate(a));
+    console.log(myDate(a));
 
     // 6
 
