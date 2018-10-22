@@ -78,7 +78,7 @@
         let obj = {};
         if (a instanceof Date) {
             obj.day = a.getDay();
-            obj.month = a.getMonth() - 1;
+            obj.month = a.getMonth()+1;
             obj.year = a.getFullYear();
             return obj;
         }
