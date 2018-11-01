@@ -8,82 +8,146 @@
     <title>Document</title>
 </head>
 <body>
-<script>
+<script src="lesson4.js"></script>
+<!--<script src="math-date.js"></script>-->
+<!--<script>-->
 
-    // function f(x, y) {
-    //     let result = 0;
-    //     if (y == 1) {
-    //
-    //         result = x;
-    //     } else {
-    //         x *= x;
-    //         y--;
-    //         result = f(x, y);
-    //
-    //     }
-    //     return result;
-    // }
-    //
-    // console.log(f(8, 2));
+    <!--/*Дана строка 'aaa@bbb@ccc'. Замените все @ на '!' с помощью глобального поиска и замены.*/-->
 
 
-    /*Дана строка 'aaa@bbb@ccc'. Замените все @ на '!' с помощью глобального поиска и замены.*/
+    <!--let str = 'aaa@bbb@ccc';-->
+
+    <!--function func(str) {-->
+        <!--return str.replace(/@/g, '!');-->
+    <!--}-->
+
+    <!--console.log(func(str));-->
 
 
-    let str = 'aaa@bbb@ccc';
-
-    function func(str) {
-        return str.replace(/@/g, '!');
-    }
-
-    console.log(func(str));
+    <!--/*Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb' тремя разными способами (через substr, substring, slice).*/-->
 
 
-    /*Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb' тремя разными способами (через substr, substring, slice).*/
+    <!--let string = 'aaa bbb ccc';-->
+    <!--string1 = string.slice(4, 7);-->
+    <!--console.log(string1);-->
+    <!--string2 = string.substr(4, 3);-->
+    <!--console.log(string2);-->
+    <!--string3 = string.substring(4, 7);-->
+    <!--console.log(string3);-->
+
+    <!--/*В переменной date лежит дата в формате '2025-12-31'. Преобразуйте эту дату в формат '31/12/2025'.*/-->
+
+    <!--let date = '2025-12-31';-->
+    <!--date = date.split('-').reverse();-->
+    <!--date = date.join('/');-->
+    <!--console.log(date);-->
+    <!--/*Дана строка 'js'. Сделайте из нее строку 'JS'.*/-->
+
+    <!--let stR = 'js';-->
+    <!--stR = stR.toUpperCase();-->
+    <!--console.log(stR);-->
+
+    <!--/*Дана строка 'я учу javascript!'. Найдите количество символов в этой строке.*/-->
+    <!--let a = 'я учу javascript!';-->
+    <!--console.log(a.length);-->
+
+    <!--/*Дана переменная str, в которой хранится какой-либо текст.-->
+     <!--Реализуйте обрезание длинного текста по следующему принципу:-->
+      <!--если количество символов этого текста больше заданного в переменной n,-->
+       <!--то в переменную result запишем первые n символов строки str и добавим в конец троеточие '...'.-->
+        <!--В противном случае в переменную result запишем содержимое переменной str.*/-->
+
+    <!--let STR = 'abcdefghijk';-->
+
+    <!--function myStr(str, n) {-->
+        <!--if (str.length > n) {-->
+            <!--return str.substr(0, n) + '...';-->
+        <!--} else {-->
+            <!--return str;-->
+        <!--}-->
+    <!--}-->
+
+    <!--console.log(myStr(STR, 2));-->
+
+    <!--/*Дана строка 'я учу javascript!'.-->
+    <!--С помощью метода split запишите каждое слово этой строки в отдельный элемент массива.*/-->
 
 
-    let string = 'aaa bbb ccc';
-    string1 = string.slice(4, 7);
-    console.log(string1);
-    string2 = string.substr(4, 3);
-    console.log(string2);
-    string3 = string.substring(4, 7);
-    console.log(string3);
-
-    /*В переменной date лежит дата в формате '2025-12-31'. Преобразуйте эту дату в формат '31/12/2025'.*/
-
-    let date = '2025-12-31';
-    date = date.split('-').reverse();
-    date = date.join('/');
-    console.log(date);
-    /*Дана строка 'js'. Сделайте из нее строку 'JS'.*/
-
-    let stR = 'js';
-    stR = stR.toUpperCase();
-    console.log(stR);
-
-    /*Дана строка 'я учу javascript!'. Найдите количество символов в этой строке.*/
-    let a = 'я учу javascript!';
-    console.log(a.length);
-
-    /*Дана переменная str, в которой хранится какой-либо текст.
-     Реализуйте обрезание длинного текста по следующему принципу:
-      если количество символов этого текста больше заданного в переменной n,
-       то в переменную result запишем первые n символов строки str и добавим в конец троеточие '...'.
-        В противном случае в переменную result запишем содержимое переменной str.*/
-
-let STR = 'abcdefghijk';
-function str(str,n) {
-    if (str.length > n ){
-        return str.substr(0,n) + '...';
-    } else{
-        return str;
-    }
-}
+    <!--let str3 = 'я учу javascript';-->
+    <!--console.log(str3.split(' '));-->
 
 
+    <!--/*Дан массив ['я', 'учу', 'javascript', '!']. С помощью метода join преобразуйте массив в строку 'я+учу+javascript+!'.*/-->
+
+    <!--let arr = ['я', 'учу', 'javascript', '!'];-->
+    <!--arr = arr.join('+');-->
+    <!--console.log(arr);-->
+
+    <!--/*Преобразуйте первую букву строки в верхний регистр.*/-->
+
+    <!--console.log(arr[0].toUpperCase());-->
+
+    <!--/*Преобразуйте первую букву каждого слова строки в верхний регистр.*/-->
+    <!--function upper(arr, delimiter = '') {-->
+        <!--arr = arr.split(delimiter);-->
+        <!--for (let i = 0; i < arr.length; i++) {-->
+            <!--arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);-->
+        <!--}-->
+        <!--return arr;-->
+    <!--}-->
+
+    <!--console.log(upper(arr, '+').join('+'));-->
+    <!--/*Преобразуйте строку 'var_test_text' в 'varTestText'. Скрипт, конечно же, должен работать с любыми аналогичными строками.*/-->
+
+    <!--arr = upper('var_test_text', '_');-->
+
+    <!--function ucLover(arr) {-->
+        <!--arr[0] = arr[0].toLowerCase();-->
+        <!--return arr;-->
+    <!--}-->
 
 
-</script>
+    <!--console.log(ucLover(arr).join('_'));-->
+
+    <!--/*Преобразуйте строку 'varTestText' в 'var_test_text'. Скрипт, конечно же, должен работать с любыми аналогичными строками.*/-->
+
+    <!--function loverCase(str, delimiter) {-->
+        <!--let arr = [];-->
+        <!--let j = 0;-->
+        <!--for (let i = 0; i < str.length; i++) {-->
+            <!--if (str[i].toUpperCase() === str[i] || i + 1 === str.length) {-->
+                <!--arr.push(str.slice(j, i));-->
+                <!--j = i;-->
+            <!--}-->
+        <!--}-->
+        <!--return arr.join(delimiter);-->
+    <!--}-->
+
+    <!--console.log(loverCase('varTestText', '_'));-->
+
+
+    <!--/*Дано число, например '12345678'.-->
+     <!--Отделите пробелом каждую тройку чисел с конца.-->
+     <!--То есть у нас должно получится '12 345 678'.-->
+     <!--Число, конечно же, может быть любым.*/-->
+
+
+    <!--function number(n) {-->
+        <!--n = n + '';-->
+        <!--let arr = [];-->
+        <!--n = n.split('');-->
+        <!--n = n.reverse();-->
+        <!--for (let i = 0; i < n.length; i++) {-->
+            <!--if (i !== 0 && i % 3 === 0) {-->
+                <!--arr.push(' ')-->
+            <!--}-->
+            <!--arr.push(n[i]);-->
+        <!--}-->
+        <!--arr = arr.reverse().join('');-->
+        <!--return arr;-->
+    <!--}-->
+
+    <!--console.log(number('12345678'));-->
+<!--</script>-->
 </body>
 </html>

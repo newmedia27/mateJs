@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    /*Create function getName,
+     that takes a 'name' from it's current context,
+      and returns it to user. Then create an object,
+      with 'name' key and call 'getName' in context of object,
+       and then in context of global window*/
+
+    function getName() {
+        return this.name;
+    }
+
+    obj = {
+        name: 'dfdfdfd',
+    };
+    console.log(getName.call(obj));
+    console.log(getName());
+
+
+    /*Create a funnction 'getDoubled' that will double
+     a 'number' property in current context
+     (depends on context) and multiply it to 2,
+     then create funnction 'getDoubledTrippled'
+     that will use getDoubled function result
+     and multiplied it to 3. Use bind || call || apply in this cases.*/
+
+    function getDoubled() {
+        return this.number * 2;
+    }
+
+    f = function getDoubledTrippled() {
+        return getDoubled.call(this) * 3;
+    };
+    o = {
+        number: 3,
+    };
+    console.log(f.call(o));
+
+
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, 'name',);
+        Object.defineProperty(this, 'lastName',{
+            value
+        });
+
+    }
+
+    var vasya = new User('Александр Пушкин');
+    console.log(vasya.fullName);
+</script>
+</body>
+</html>

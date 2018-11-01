@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    /*При выполнении этого кода вызов rabbit.eat() запишет в объект свойство full.
+
+    Вопрос — в какой объект: в rabbit или animal?*/
+    var animal = {};
+    var rabbit = {};
+
+    rabbit.__proto__ = animal;
+
+    animal.eat = function () {
+        this.full = true;
+    };
+
+    rabbit.eat();
+    /*animal*/
+
+
+
+
+    /*Какие значения будут выводиться в коде ниже?*/
+
+
+    // var animal = {jumps: null};
+    // var rabbit = {jumps: true};
+    //
+    // rabbit.__proto__ = animal;
+    //
+    // alert(rabbit.jumps); // ? (true)
+    //
+    // delete rabbit.jumps;
+    // alert(rabbit.jumps); // ? (null)
+    //
+    // delete animal.jumps;
+    // alert(rabbit.jumps);  // ? (undefined)
+
+
+    /*Задание состоит из двух частей:
+
+        Присвойте объектам ссылки proto так, чтобы любой поиск чего-либо шёл по алгоритму pockets -> bed -> table -> head. То есть pockets.pen == 3,
+         bed.glasses == 1, но table.money == undefined.
+        После этого ответьте на вопрос, как быстрее искать glasses: обращением к pockets.glasses или head.glasses? Попробуйте протестировать.
+    */
+
+    var head = {
+        glasses: 1
+    };
+
+    var table = {
+        pen: 3
+    };
+
+    var bed = {
+        sheet: 1,
+        pillow: 2
+    };
+
+    var pockets = {
+        money: 2000
+    };
+    pockets.__proto__ = bed;
+    bed.__proto__ = table;
+    table.__proto__ = head;
+
+
+    /*В примерах ниже производятся различные действия с prototype.
+
+Каковы будут результаты выполнения? Почему?*/
+
+
+    //   function Rabbit() { }
+    //
+    //   Rabbit.prototype = { eats: true };
+    //
+    //   var rabbit = new Rabbit();
+    //
+    //   Rabbit.prototype = {};
+    //
+    //   alert(rabbit.eats); //true
+    //  /* А если код будет такой? (заменена одна строка):*/
+    //
+    //   function Rabbit(name) { }
+    //   Rabbit.prototype = { eats: true };
+    //
+    //   var rabbit = new Rabbit();
+    //
+    //   Rabbit.prototype.eats = false; // false
+    //
+    //   alert(rabbit.eats);
+    // /*  А такой? (заменена одна строка)*/
+    //
+    //   function Rabbit(name) { }
+    //   Rabbit.prototype = { eats: true };
+    //
+    //   var rabbit = new Rabbit();
+    //
+    //   delete Rabbit.prototype.eats; // (undefined)
+    //
+    //   alert(rabbit.eats);
+
+
+    function Rabbit() {
+    }
+
+    Rabbit.prototype.test = function () {
+        alert(this);
+    };
+
+    var rabbit = new Rabbit();
+
+    /*Есть ли разница между вызовами:*/
+
+    rabbit.test();
+    rabbit.__proto__.test();
+    Rabbit.prototype.test();
+    Object.getPrototypeOf(rabbit).test();
+
+    /*Какие из этих вызовов идентичны в браузере IE9+? А в Chrome?
+        6 task*/
+
+
+
+    /* Вы — руководитель команды, которая разрабатывает игру, хомяковую ферму. Один из программистов получил задание создать класс «хомяк» (англ - "Hamster").
+
+         Объекты-хомяки должны иметь массив food для хранения еды и метод found, который добавляет к нему.
+
+         Ниже — его решение. При создании двух хомяков, если поел один — почему-то сытым становится и второй тоже.
+
+         В чём дело? Как поправить?*/
+
+    function Hamster() {
+        this.food = [];
+    }
+
+    // Hamster.prototype.food = []; // пустой "живот"
+
+    Hamster.prototype.found = function (something) {
+        this.food.push(something);
+    };
+
+    // Создаём двух хомяков и кормим первого
+    speedy = new Hamster();
+    lazy = new Hamster();
+
+    speedy.found("яблоко");
+    speedy.found("орех");
+
+    alert(speedy.food.length); // 2
+    alert(lazy.food.length);   // 2 (!??)
+
+
+    /*Создайте класс "Person" который будет иметь обычные для человека характеристики, например:*/
+
+    /*и т.д
+
+    /*Далее создайте класс "Programmer" который будет наследовать класс
+     "Person" и к нему еще дополнительно добавьте несколько методов и свойств которые свойственны именно человеку-программисту!
+
+    Создайте невколько экземпляром класса Programmer.*/
+
+
+    class Person {
+        constructor() {
+            this.legs =2;
+            this.arms =2;
+            this.cnWalk =true;
+        }
+    }
+
+    class Programmer extends Person{
+        constructor(){
+            super();
+
+        }
+    }
+
+
+
+    function sum(n=0) {
+
+    }
+
+</script>
+</body>
+</html>

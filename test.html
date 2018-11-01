@@ -8,7 +8,18 @@
     <title>Document</title>
 </head>
 <body>
+
+<b onclick="alert(this.nextSibling.nodeType)">44444</b>
+<p>dfdfdfdf</p>
+<style>
+    html { font-size: 10px}
+    body, span { font-size: 90% }
+    .special { font-size: 110% }
+</style>
 <script>
+
+
+
 
 
     /*
@@ -30,85 +41,111 @@
 
 
     // 1
-
-    function getLength(arr) {
-        if (Array.isArray(arr)) {
-            return arr.length;
-        }
-    }
-
-    // 2
-
-    function getArgsLength(...arg) {
-        return arg.length;
-    }
-
-    // 3
-
-    function removeEmptyElements(arr) {
-        if (Array.isArray(arr)) {
-            arr = arr.filter(element => element !== null);
-            for (let i in arr) {
-                if (Array.isArray(arr[i])) {
-                    arr[i] = removeEmptyElements(arr[i]);
-                }
-            }
-        } else {
-            alert("Не массив");
-        }
-        return arr;
-    }
-
-    console.log(removeEmptyElements([1, 2, , , , [3, , , , , 4],5,6,[7,,,8,[9,10,,,,,11]]]));
-
-    // 4
-
-    function sortReverse(arr) {
-        if (Array.isArray(arr)) {
-            return arr.reverse();
-        } else {
-            alert("Не массив");
-        }
-    }
-
-    // 5
-    let a = new Date(2008, 1, 1);
-
-    function myDate(a) {
-        let obj = {};
-        if (a instanceof Date) {
-            obj.day = a.getDay();
-            obj.month = a.getMonth()+1;
-            obj.year = a.getFullYear();
-            return obj;
-        }
-    }
-
-    console.log(myDate(a));
-
-    // 6
-
-    function properties(a) {
-        setTimeout(function () {
-            alert(Object.keys(a).length)
-        }, 1000);
-    }
-
-    // console.log(properties(myDate(a)));
-
-    //7
-
-    function ppc() {
-        let name = prompt('you name');
-        console.log(name);
-        if (name === null || name.length < 1) {
-            setTimeout(function () {
-                ppc();
-            }, 2000)
-        }
-    }
+    //
+    // function getLength(arr) {
+    //     if (Array.isArray(arr)) {
+    //         return arr.length;
+    //     }
+    // }
+    //
+    // // 2
+    //
+    // function getArgsLength(...arg) {
+    //     return arg.length;
+    // }
+    //
+    // // 3
+    //
+    // function removeEmptyElements(arr) {
+    //     if (Array.isArray(arr)) {
+    //         arr = arr.filter(element => element !== null);
+    //         for (let i in arr) {
+    //             if (Array.isArray(arr[i])) {
+    //                 arr[i] = removeEmptyElements(arr[i]);
+    //             }
+    //         }
+    //     } else {
+    //         alert("Не массив");
+    //     }
+    //     return arr;
+    // }
+    //
+    // console.log(removeEmptyElements([1, 2, , , , [3, , , , , 4], 5, 6, [7, , , 8, [9, 10, , , , , 11]]]));
+    //
+    // // 4
+    //
+    // function sortReverse(arr) {
+    //     if (Array.isArray(arr)) {
+    //         return arr.reverse();
+    //     } else {
+    //         alert("Не массив");
+    //     }
+    // }
+    //
+    // // 5
+    // let a = new Date(2008, 1, 1);
+    //
+    // function myDate(a) {
+    //     let obj = {};
+    //     if (a instanceof Date) {
+    //         obj.day = a.getDay();
+    //         obj.month = a.getMonth() + 1;
+    //         obj.year = a.getFullYear();
+    //         return obj;
+    //     }
+    // }
+    //
+    // console.log(myDate(a));
+    //
+    // // 6
+    //
+    // function properties(a) {
+    //     setTimeout(function () {
+    //         alert(Object.keys(a).length)
+    //     }, 1000);
+    // }
+    //
+    // // console.log(properties(myDate(a)));
+    //
+    // //7
+    //
+    // function ppc() {
+    //     let name = prompt('you name');
+    //     console.log(name);
+    //     if (name === null || name.length < 1) {
+    //         setTimeout(function () {
+    //             ppc();
+    //         }, 2000)
+    //     }
+    // }
 
     // ppc();
+
+
+    // let y = 10;
+    // let z = 3;
+    // let x = (y % 5 > 0) ? (z == 3) ? z * 2 : y + 3 : (z < 3) ? y - z : z++;
+    //
+    //
+    // if (y % 5 > 0) {
+    //     if (z == 3) {
+    //         x = z * 2;
+    //     } else {
+    //         x = y + 3
+    //     }
+    // } else if (z < 3) {
+    //     x = y - z;
+    // } else {
+    //     z++;
+    // }
+
+
+    // f = function () {
+    //     x = 10;
+    //     y = y || x--;
+    //     alert(y);
+    // };
+    // console.log(11);
 </script>
 </body>
 </html>

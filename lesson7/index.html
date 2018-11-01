@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*Создайте объект с помощи функции-конструктора Person.
+     В объекте должны быть свойства name, last_name && age, метод isCanWalk()
+     который будет возвращать true, и метод countPersons как статический метод
+      который будет считать сколько екземпляров Person мы создали;
+создайте несколько екземпляров Person например: var Lily = new Person(аргументы ...)*/
+
+    function Person() {
+        this.name;
+        this.last_name;
+     age++;
+        this.isCanWalk = function () {
+            return true;
+        };
+        this.countPersons = function () {
+
+            return age;
+
+        };
+    }
+age = 0;
+    let a = new Person();
+    console.log(a.countPersons());
+    let b = new Person();
+    console.log(b.countPersons());
+    let c = new Person();
+    console.log(c.countPersons());
+</script>
+</body>
+</html>

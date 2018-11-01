@@ -124,3 +124,5 @@ function unique(arr) {
 }
 
 console.log(unique([1,1,1,3,5,5,8,'fgfg','fgfg','1']));
+
+obj.h
