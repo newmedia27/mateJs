@@ -8,6 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+
+<span class="container">speed string </span>
+
 <script>
 
     /*При выполнении этого кода вызов rabbit.eat() запишет в объект свойство full.
@@ -120,10 +123,10 @@
 
     /*Есть ли разница между вызовами:*/
 
-    rabbit.test();
-    rabbit.__proto__.test();
-    Rabbit.prototype.test();
-    Object.getPrototypeOf(rabbit).test();
+    // rabbit.test();
+    // rabbit.__proto__.test();
+    // Rabbit.prototype.test();
+    // Object.getPrototypeOf(rabbit).test();
 
     /*Какие из этих вызовов идентичны в браузере IE9+? А в Chrome?
         6 task*/
@@ -155,8 +158,8 @@
     speedy.found("яблоко");
     speedy.found("орех");
 
-    alert(speedy.food.length); // 2
-    alert(lazy.food.length);   // 2 (!??)
+    // alert(speedy.food.length); // 2
+    // alert(lazy.food.length);   // 2 (!??)
 
 
     /*Создайте класс "Person" который будет иметь обычные для человека характеристики, например:*/
@@ -171,25 +174,93 @@
 
     class Person {
         constructor() {
-            this.legs =2;
-            this.arms =2;
-            this.cnWalk =true;
+            this.legs = 2;
+            this.arms = 2;
+            this.cnWalk = true;
         }
     }
 
-    class Programmer extends Person{
-        constructor(){
+    class Programmer extends Person {
+        constructor() {
             super();
-
+            this.codeLanguage = 'JavaScript'
         }
     }
 
 
+    /*Напишите функцию-конструктор Adder(startingValue). Объекты, которые она создает, должны хранить текущую сумму и прибавлять к ней то, что вводит посетитель.
 
-    function sum(n=0) {
+ Более формально, объект должен:
 
+ Хранить текущее значение в своём свойстве value. Начальное значение свойства value ставится конструктором равным startingValue. Метод addInput() вызывает prompt,
+ принимает число и прибавляет его к свойству value. Метод showValue() выводит текущее значение value. Таким образом, свойство value является текущей суммой всего,
+ что ввел посетитель при вызовах метода addInput(), с учетом начального значения startingValue.
+
+ По ссылке ниже вы можете посмотреть работу кода:
+
+ var adder = new Adder(1); // начальное значение 1
+ adder.addInput(); // прибавит ввод prompt к текущему значению
+ adder.addInput(); // прибавит ввод prompt к текущему значению
+ adder.showValue(); // выведет текущее значение*/
+
+
+    function Adder(startingValue) {
+        this.startingValue = startingValue;
+        this.addInput = ()=>{
+            return this.startingValue = this.startingValue + parseInt(prompt('you number'))
+        };
+        this.showValue = ()=>{
+            return this.startingValue;
+        }
     }
+    let adder = new Adder(5);
+    // adder.addInput(5);
+    // console.log(adder.startingValue);
+
+
+    /*Напишите функцию sum, которая будет возвращать сумму любого количества чисел. Работать функция должна вот так:
+
+sum(2)(5)(6)(7)(2)(3)(4)( ); // 29 sum(56)(-10)(3)(1)( ); // 50
+
+Сделайте также, чтобы можно было работать и без пустых скобок в конце: sum(2)(5)(6)(7)(2)(3)(4) - вот так.*/
+
+    function sum(a) {
+        let result;
+      if (typeof a === 'number') {
+         result = a;
+      }
+      else {
+        return sum;
+      }
+      function f(b) {
+        if (typeof b === 'number') {
+        result += b;
+        return f;
+        }
+        else {
+          return f;
+        }
+      }
+      f.toString = function() {
+        return result;
+      };
+      return f;
+    }
+
+    console.log(sum(2)(5)(6)(7)(2)(3)(4)());
+
+
+    /*Реализуйте бегущую строку на JavaScript.*/
+
+
+    let element = document.querySelector('.container');
+    let text = element.innerHTML;
+    setInterval(function() {
+        text = text.substring(1) + text[0];
+        element.innerHTML = text;
+    }, 150);
 
 </script>
+
 </body>
 </html>
