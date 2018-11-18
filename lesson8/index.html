@@ -9,58 +9,83 @@
 </head>
 <body>
 
+<script src="index.js"></script>
+<!--<script>-->
+    <!--/*У вас есть объект User, который хранит имя и фамилию в свойстве this.fullName:-->
+    <!--* Имя и фамилия всегда разделяются пробелом.-->
 
-<script>
+<!--Сделайте, чтобы свойства firstName и lastName были доступны не только на чтение, но и на запись-->
 
-    /*Create function getName,
-     that takes a 'name' from it's current context,
-      and returns it to user. Then create an object,
-      with 'name' key and call 'getName' in context of object,
-       and then in context of global window*/
+<!--Важно: в этой задаче fullName должно остаться свойством, а firstName/lastName — реализованы через get/set из Object.defineProperty().-->
 
-    function getName() {
-        return this.name;
-    }
+<!--Лишнее дублирование здесь ни к чему.-->
+    <!--* */-->
+    <!--function User(fullName) {-->
+        <!--this.fullName = fullName;-->
 
-    obj = {
-        name: 'dfdfdfd',
-    };
-    console.log(getName.call(obj));
-    console.log(getName());
+        <!--// тут вы должны записать логику как вы будете в эти свойства записывать данные-->
+        <!--// в свойства firstName/lastName через Object.defineProperty()-->
 
 
-    /*Create a funnction 'getDoubled' that will double
-     a 'number' property in current context
-     (depends on context) and multiply it to 2,
-     then create funnction 'getDoubledTrippled'
-     that will use getDoubled function result
-     and multiplied it to 3. Use bind || call || apply in this cases.*/
+        <!--Object.defineProperty(this, 'firstName', {-->
+            <!--get: function () {-->
+                <!--return this.fullName.split(' ')[0];-->
+            <!--},-->
+            <!--set: (name) => {-->
+                <!--this.fullName = name + ' ' + this.lastName-->
+            <!--}-->
+        <!--});-->
+        <!--Object.defineProperty(this, 'lastName', {-->
+            <!--get: function () {-->
+                <!--return this.fullName.split(' ')[1];-->
+            <!--},-->
+            <!--set: (name) => {-->
+                <!--this.fullName = this.firstName + ' ' + name-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
 
-    function getDoubled() {
-        return this.number * 2;
-    }
-
-    f = function getDoubledTrippled() {
-        return getDoubled.call(this) * 3;
-    };
-    o = {
-        number: 3,
-    };
-    console.log(f.call(o));
+    <!--var vasya = new User('Александр Пушкин');-->
 
 
-    function User(fullName) {
-        this.fullName = fullName;
+    <!--// console.log(vasya.firstName);-->
+    <!--// console.log(vasya.lastName);-->
+    <!--// vasya.lastName = 'пух';-->
+    <!--// console.log(vasya.fullName);-->
 
-        Object.defineProperty(this, 'name',);
-        Object.defineProperty(this, 'lastName',{
-            value
-        });
 
-    }
+    <!--/**Напишите конструктор Calculator, который создаёт расширяемые объекты-калькуляторы.-->
 
-    var vasya = new User('Александр Пушкин');
-    console.log(vasya.fullName);
-</script>
+     <!--Эта задача состоит из двух частей, которые можно решать одна за другой.-->
+
+     <!--Первый шаг задачи: вызов calculate(str) принимает строку, например «1 + 2»,-->
+     <!--с жёстко заданным форматом «ЧИСЛО операция ЧИСЛО» (по одному пробелу вокруг операции),-->
+     <!--и возвращает результат. Понимает плюс + и минус -. Пример использования:/*/-->
+
+
+    <!--function Calculator() {-->
+
+        <!--this.method = {};-->
+
+        <!--this.AddMethod = (methodName, method) => {-->
+            <!--return this.method[methodName] = method;-->
+        <!--}-->
+        <!--this.calculate = (str) => {-->
+            <!--let a = parseInt(str.split(' ')[0]);-->
+            <!--let b = parseInt(str.split(' ')[2]);-->
+            <!--let operand =str.split(' ')[1];-->
+            <!--return this.method[operand](a,b);-->
+        <!--}-->
+    <!--}-->
+
+    <!--let calc = new Calculator();-->
+    <!--calc.AddMethod('+', function (a, b) {-->
+        <!--return a + b;-->
+    <!--});-->
+    <!--console.log(calc.calculate('5 + 5'));-->
+    <!--// console.log(calc);-->
+
+<!--</script>-->
+
 </body>
 </html>

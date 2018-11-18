@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button>click me</button>
+<ul></ul>
+<style>
+
+</style>
+<script>
+
+
+    function prom(url) {
+        return new Promise((res, rej) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.send();
+
+            xhr.addEventListener('readystatechange', () => {
+                if (xhr.readyState !== 4) {
+                    return false;
+                }
+
+                let contentType = xhr.getResponseHeader('Content-Type');
+                // alert(xhr.status);
+                if (xhr.status !== 200) {
+                    console.log(xhr.status + ': ' + xhr.statusText);
+                    alert('false')
+
+                } else {
+                    res(JSON.parse(xhr.responseText));
+
+                }
+            })
+        })
+    }
+
+    let button = document.querySelector('button');
+    button.addEventListener('click', () => {
+        prom('https://swapi.co/api/films/').then((data) => {
+
+            let ul = document.querySelector('ul');
+            ul.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                let promise = new Promise();
+                promise.all()
+                console.log(e.target);
+            })
+            for (let i in data.results) {
+                let li = document.createElement('li');
+                let a = document.createElement('a');
+                a.setAttribute('href', data.results[i].url);
+                a.innerHTML = data.results[i].title;
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
+
+            console.log(i);
+            console.log(data.results);
+        });
+    });
+
+
+</script>
+</body>
+</html>

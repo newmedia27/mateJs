@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    .container{
+        margin: 0 auto;
+        position: relative;
+        width: 30%;
+        top: 50%;
+
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    input{
+        margin-bottom: 5px;
+        width: 50%;
+    }
+</style>
+
+<div class="container">
+    <form>
+        <input  id="name" type="text">
+        <input  id="surName" type="text">
+        <input  id="phone" type="text">
+        <input  id="confirm" type="checkbox">
+
+        <input type="submit">
+
+    </form>
+</div>
+
+
+<!--<ul></ul>-->
+<script>
+    // const URL_API = 'https://swapi.co/api/people?format=json';
+    //
+    //
+    // let ul = document.getElementsByTagName('ul')[0];
+    // const getDataBy = url => {
+    //     // create new
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.open('GET', url, true);
+    //     xhr.send();
+    //
+    //     xhr.addEventListener('readystatechange', (...args) => {
+    //         let contentType = xhr.getResponseHeader('Content-Type');
+    //         if (xhr.status === 200 && contentType === "application/json") {
+    //             try {
+    //                 let response = JSON.parse(xhr.responseText);
+    //                 let people = response.results;
+    //                 console.log(people);
+    //                 for (let i in  people) {
+    //                     let li = document.createElement('li');
+    //                     li.innerHTML=people[i].name + ' - ' + people[i].eye_color ;
+    //                     ul.appendChild(li);
+    //
+    //                 }
+    //             }catch (e) {
+    //                 console.log('hren');
+    //             }
+    //         }
+    //     });
+    //
+    // };
+    //
+    // getDataBy(URL_API);
+
+
+function createObj() {
+    let form = document.querySelector('form');
+    let arr =[];
+    // console.log(form);
+    form.addEventListener('submit',(event)=>{
+        event.preventDefault();
+        // console.log(90);
+        let inputs = document.querySelectorAll('input');
+         inputs.forEach((item =>{
+             // console.log(item.value);
+             arr.push({
+                 [item.id] : item.value
+             });
+         }))
+
+        console.log(arr);
+    });
+
+    return arr;
+}
+// createObj();
+    console.log(createObj());
+</script>
+</body>
+</html>
